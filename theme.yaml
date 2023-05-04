@@ -10,7 +10,7 @@ spec:
   description: Halo 2.0 Theme base on Thymeleaf, Referring to Butterfly and Heo
   logo: 'https://www.hyouka.link/upload/favicon.svg'
   website: 'https://www.hyouka.link'
-  repo: 'https://github.com/liuzhihang/halo-theme-hao'
+  repo: 'https://github.com/hyouka-oasis/theme-heo'
   settingName: "theme-hao-setting"
   configMapName: "theme-hao-configMap"
   version: 1.1.1
