@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div id="bannerGroup" th:fragment="banner-group">
+
+    <!-- banners -->
+    <div id="banners">
+        <div class="banners-title">
+            <div class="banners-title-big"
+                 th:if="${not #strings.isEmpty(theme.config.top.bannersTitleBig)}"
+                 th:utext="${theme.config.top.bannersTitleBig}"></div>
+            <div class="banners-title-small"
+                 th:if="${not #strings.isEmpty(theme.config.top.bannersTitleSmall)}"
+                 th:utext="${theme.config.top.bannersTitleSmall}"></div>
+        </div>
+
+        <div class="tags-group-all">
+
+            <!--  banners 使用默认值-->
+            <div class="tags-group-wrapper" th:if="${#strings.equals(theme.config.top.bannersBackground, 'default')}">
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#989bf8">
+                        <img th:src="@{/assets/images/icons/AfterEffect.png}" title="AfterEffect">
+                    </div>
+                    <div class="tags-group-icon" style="background:#fff">
+                        <img th:src="@{/assets/images/icons/Sketch.png}" title="Sketch">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#57b6e6">
+                        <img th:src="@{/assets/images/icons/Docker.png}" title="Docker">
+                    </div>
+                    <div class="tags-group-icon" style="background:#4082c3">
+                        <img th:src="@{/assets/images/icons/Photoshop.png}" title="Photoshop">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#fff">
+                        <img th:src="@{/assets/images/icons/FinalCutPro.png}" title="FinalCutPro">
+                    </div>
+                    <div class="tags-group-icon" style="background:#fff">
+                        <img th:src="@{/assets/images/icons/Python.png}" title="Python">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#eb6840">
+                        <img th:src="@{/assets/images/icons/Swift.png}" title="Swift">
+                    </div>
+                    <div class="tags-group-icon" style="background:#8f55ba">
+                        <img th:src="@{/assets/images/icons/Principle.png}" title="Principle">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#f29e39">
+                        <img th:src="@{/assets/images/icons/illustrator.png}" title="illustrator">
+                    </div>
+                    <div class="tags-group-icon" style="background:#2c51db">
+                        <img th:src="@{/assets/images/icons/CSS3.png}" title="CSS3">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#f7cb4f">
+                        <img th:src="@{/assets/images/icons/JS.png}" title="JS">
+                    </div>
+                    <div class="tags-group-icon" style="background:#e9572b">
+                        <img th:src="@{/assets/images/icons/HTML.png}" title="HTML">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#df5b40">
+                        <img th:src="@{/assets/images/icons/Git.webp}" title="Git">
+                    </div>
+                    <div class="tags-group-icon" style="background:#e65164">
+                        <img th:src="@{/assets/images/icons/Apifox.webp}" title="Apifox">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#989bf8">
+                        <img th:src="@{/assets/images/icons/AfterEffect.png}" title="AfterEffect">
+                    </div>
+                    <div class="tags-group-icon" style="background:#fff">
+                        <img th:src="@{/assets/images/icons/Sketch.png}" title="Sketch">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#57b6e6">
+                        <img th:src="@{/assets/images/icons/Docker.png}" title="Docker">
+                    </div>
+                    <div class="tags-group-icon" style="background:#4082c3">
+                        <img th:src="@{/assets/images/icons/Photoshop.png}" title="Photoshop">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#fff">
+                        <img th:src="@{/assets/images/icons/FinalCutPro.png}" title="FinalCutPro">
+                    </div>
+                    <div class="tags-group-icon" style="background:#fff">
+                        <img th:src="@{/assets/images/icons/Python.png}" title="Python">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#eb6840">
+                        <img th:src="@{/assets/images/icons/Swift.png}" title="Swift">
+                    </div>
+                    <div class="tags-group-icon" style="background:#8f55ba">
+                        <img th:src="@{/assets/images/icons/Principle.png}" title="Principle">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#f29e39">
+                        <img th:src="@{/assets/images/icons/illustrator.png}" title="illustrator">
+                    </div>
+                    <div class="tags-group-icon" style="background:#2c51db">
+                        <img th:src="@{/assets/images/icons/CSS3.png}" title="CSS3">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#f7cb4f">
+                        <img th:src="@{/assets/images/icons/JS.png}" title="JS">
+                    </div>
+                    <div class="tags-group-icon" style="background:#e9572b">
+                        <img th:src="@{/assets/images/icons/HTML.png}" title="HTML">
+                    </div>
+                </div>
+                <div class="tags-group-icon-pair">
+                    <div class="tags-group-icon" style="background:#df5b40">
+                        <img th:src="@{/assets/images/icons/Git.webp}" title="Git">
+                    </div>
+                    <div class="tags-group-icon" style="background:#e65164">
+                        <img th:src="@{/assets/images/icons/Apifox.webp}" title="Apifox">
+                    </div>
+                </div>
+            </div>
+
+            <!--  banners 使用默认值-->
+            <div class="tags-group-wrapper"
+                 th:if="${#strings.equals(theme.config.top.bannersBackground, 'techStack')}"
+                 th:with="techs = ${theme.config.about.techStack}">
+                <th:block th:each="tech,iterStat : ${techs}">
+                    <div class="tags-group-icon-pair" th:if="${iterStat.odd}">
+                        <div class="tags-group-icon"
+                             th:style="'background:' + ${techOdd.background}"
+                             th:with="techOdd = ${techs.get(iterStat.index - 1)}">
+                            <img th:src="@{${techOdd.url}}" th:title="${techOdd.name}">
+                        </div>
+
+                        <div class="tags-group-icon"
+                             th:style="'background:' + ${techEven.background}"
+                             th:with="techEven = ${tech}">
+                            <img th:src="@{${techEven.url}}" th:title="${techEven.name}">
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+        <!-- 随机前往一篇文章 -->
+        <a id="banner-hover" onclick="randomPost()">
+            <span class="bannerText">随便逛逛</span>
+            <i class="iconfont icon-arrow-right banner-righticon"></i>
+        </a>
+    </div>
+
+    <!-- category -->
+    <div class="categoryGroup">
+        <div class="categoryItem" style="box-shadow:var(--heo-shadow-blue)">
+            <a class="categoryButton CB1 bikan"
+               th:href="@{${theme.config.top.bikan}}">
+                <span class="categoryButtonText">必看精选</span><i class="iconfont icon-book"></i>
+            </a>
+        </div>
+        <div class="categoryItem" style="box-shadow:var(--heo-shadow-red)">
+            <a class="categoryButton remen"
+               th:href="@{${theme.config.top.remen}}">
+                <span class="categoryButtonText">热门文章</span><i class="iconfont icon-burn"></i>
+            </a>
+        </div>
+        <div class="categoryItem" style="box-shadow:var(--heo-shadow-green)">
+            <a class="categoryButton shiyong"
+               th:href="@{${theme.config.top.shiyong}}">
+                <span class="categoryButtonText">实用教程</span><i class="iconfont icon-book"></i>
+            </a>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+
+        function randomPost() {
+            // 随机跳转首页的一篇文章
+            // 后续改成跳转全站的文章，可以从 sitemap 中获取所有文章
+            let posts = [[${posts}]];
+
+            let datum = posts.total < posts.size ? posts.total : posts.size;
+
+            let number = Math.floor(Math.random() * datum);
+
+            console.log(number);
+            let post = posts.items[number];
+
+            // 当前窗口打开
+            window.location.href = post.status.permalink;
+            // window.open(post.status.permalink);
+        }
+
+    </script>
+
+</div>
+</html>
