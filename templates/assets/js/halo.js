@@ -5,8 +5,8 @@ let halo = {
             if(commentDOMclass.contains('light'))
                 commentDOMclass.replace('light','dark')
             else
-            commentDOMclass.replace('dark','light')
+                commentDOMclass.replace('dark','light')
         }
-           
+
     }
 }

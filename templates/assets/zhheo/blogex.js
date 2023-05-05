@@ -166,7 +166,7 @@ function getContrastYIQ(hexcolor) {
 function navTitle() {
     var titlevalue = document.title;
     var postName = document.getElementsByClassName("post-title")[0];
-    document.getElementById("page-name-text").innerHTML = postName?.innerText;
+    document.getElementById("page-name-text").innerHTML = postName.innerText;
 }
 
 window.onload = function () {
@@ -545,14 +545,14 @@ document.addEventListener('scroll', btf.throttle(function () {
     if (eventlistner && pagination) {
         var centerY = eventlistner.offsetTop + (eventlistner.offsetHeight / 2);
         if (document.body.clientWidth > 1300) {
-            if (centerY < visibleTop) {
+            if (centerY < visibleBottom) {
                 pagination.classList.add("show-window");
             } else {
                 pagination.classList.remove("show-window");
             }
         }
     }
-}, 200));
+}, 200))
 
 
 // 页面百分比
@@ -566,12 +566,18 @@ function percent() {
     // 获取位置监测容器，此处采用评论区
     var eventlistner = document.getElementById('post-tools') || document.getElementById('footer');
     var centerY = eventlistner.offsetTop + (eventlistner.offsetHeight / 2);
+
     if ((centerY < visibleBottom) || (result > 90)) {
         document.querySelector("#nav-totop").classList.add("long");
         btn.innerHTML = "返回顶部";
     } else {
         document.querySelector("#nav-totop").classList.remove("long");
         btn.innerHTML = result;
+    }
+    if (b - a < 100) {
+        document.querySelector(".needEndHide").classList.add("hide");
+    }else {
+        document.querySelector(".needEndHide").classList.remove("hide");
     }
     window.onscroll = percent;
 }
@@ -760,7 +766,7 @@ document.addEventListener('pjax:send', function () {
     heo.showLoading();
 })
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('load', function () {
     // coverColor()
     navTitle()
     percent()
@@ -769,13 +775,13 @@ document.addEventListener('DOMContentLoaded', function () {
     heo.sayhi()
     heo.addTag()
     heo.stopImgRightDrag()
-    // heo.addFriendLinksInFooter()
+    heo.addFriendLinksInFooter()
     heo.qrcodeCreate()
     heo.hidecookie()
     heo.onlyHome()
     heo.addNavBackgroundInit()
     heo.initIndexEssay()
-    // heo.changeTimeInEssay()
+    heo.changeTimeInEssay()
     heo.reflashEssayWaterFall()
     heo.addMediumInEssay()
     heo.darkModeStatus()
