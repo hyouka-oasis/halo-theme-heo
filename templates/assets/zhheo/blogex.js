@@ -574,10 +574,13 @@ function percent() {
         document.querySelector("#nav-totop").classList.remove("long");
         btn.innerHTML = result;
     }
-    if (b - a < 100) {
-        document.querySelector(".needEndHide").classList.add("hide");
-    }else {
-        document.querySelector(".needEndHide").classList.remove("hide");
+    const needEndHide = document.querySelector(".needEndHide");
+    if (needEndHide) {
+        if (b - a < 100) {
+            needEndHide.classList.add("hide");
+        }else {
+            needEndHide.classList.remove("hide");
+        }
     }
     window.onscroll = percent;
 }
