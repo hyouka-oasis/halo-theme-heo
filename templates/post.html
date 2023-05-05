@@ -177,24 +177,27 @@
                         <span class="post-copyright-info" th:utext="${theme.config.post.copyrightInfo}"></span>
                     </div>
                 </div>
-                <nav class="pagination-post" id="pagination"
-                     th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
-                    <a th:if="${postCursor.hasPrevious()}" th:href="@{${postCursor.previous.status.permalink}}">
-                        <div class="prev-post pull-left">
+                <nav
+                        class="pagination-post needEndHide"
+                        id="pagination"
+                        th:with="postCursor = ${postFinder.cursor(post.metadata.name)}"
+                >
+                    <div class="prev-post pull-left" th:if="${postCursor.hasPrevious()}">
+                        <a th:href="@{${postCursor.previous.status.permalink}}">
                             <div class="pagination-info">
                                 <div class="label">上一篇</div>
                                 <div class="prev_info" th:text="${postCursor.previous.spec.title}"></div>
                             </div>
-                        </div>
-                    </a>
-                    <a th:if="${postCursor.hasNext()}" th:href="@{${postCursor.next.status.permalink}}">
-                        <div class="next-post pull-right">
+                        </a>
+                    </div>
+                    <div class="next-post pull-right" th:if="${postCursor.hasNext()}" >
+                        <a th:href="@{${postCursor.next.status.permalink}}">
                             <div class="pagination-info">
                                 <div class="label">下一篇</div>
                                 <div class="next_info" th:text="${postCursor.next.spec.title}"></div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </nav>
                 <div class="relatedPosts" th:if="${not #lists.isEmpty(post.categories)}">
 
