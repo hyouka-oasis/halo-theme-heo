@@ -243,7 +243,7 @@ var heo = {
     // 即刻短文添加灯箱
     addMediumInEssay: function () {
         if (document.querySelector('#waterfall')) {
-            mediumZoom(document.querySelectorAll('[data-zoomable]'))
+            // mediumZoom(document.querySelectorAll('[data-zoomable]'))
         }
     },
 
