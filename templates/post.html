@@ -12,7 +12,7 @@
                 <img crossorigin="anonymous" id="post-cover"
                      th:src="${#strings.isEmpty(post.spec.cover) ? theme.config.layout.postRandomImg : post.spec.cover}">
             </div>
-
+            <section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section>
             <div id="post-info">
                 <div id="post-firstinfo">
                     <div class="meta-firstline">
@@ -32,8 +32,12 @@
                                 <a class="post-meta__tags"
                                    th:each="tag : ${post.tags}"
                                    th:href="@{${tag.status.permalink}}"
-                                   th:text="'#'+${tag.spec.displayName}"
-                                   th:title="${tag.spec.displayName}"></a>
+                                   th:title="${tag.spec.displayName}">
+                                    <span
+                                            class="tags-name tags-punctuation"
+                                            th:text="${tag.spec.displayName}"
+                                    ></span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -51,11 +55,11 @@
 
                         <span class="post-meta-wordcount"
                               th:with="wordCount = ${#strings.length(post.content.content)}">
-                            <i class="iconfont icon-file-word post-meta-icon" title="字数"></i>
+                            <i class="heofont icon-file-word-fill" title="字数"></i>
                             <span class="post-meta-label">字数:</span>
                             <span class="word-count" th:text="${{wordCount}}"></span>
                             <span class="post-meta-separator"></span>
-                            <i class="iconfont icon-clock post-meta-icon" title="阅读耗时"></i>
+                            <i class="heofont icon-time-fill" title="阅读耗时"></i>
                             <span class="post-meta-label">阅读耗时:</span>
                             <span>[[${wordCount / 400}]] 分钟</span>
                         </span>
@@ -63,14 +67,14 @@
                         <!--<span class="post-meta-wechat" title="该文章已在公众号中更新"><i-->
                         <!--        class="fab fa-weixin post-meta-icon"></i>公众号同步</span>-->
                         <span class="post-meta-pv" data-flag-title="热度">
-                            <i class="iconfont icon-hotjar post-meta-icon"></i>
+                            <i class="heofont icon-fire-fill"></i>
                             <span class="post-meta-label">热度:</span>
                             <span id="visit" th:text="${post.stats.visit}"></span>
                         </span>
                         <span class="post-meta-commentcount" onclick="heo.scrollTo('#post-comment');" title="评论数">
-                            <i class="iconfont icon-comment-alt"></i>
+                            <i class="heofont icon-chat-1-fill"></i>
                             <span class="post-meta-label">评论:</span>
-                            <a href="#post-comment"><span id="comment-count" th:text="${post.stats.comment}"></span></a>
+                            <a href="#post-comment"><span id="twikoo-count" th:text="${post.stats.comment}"></span></a>
                         </span>
                     </div>
 
@@ -120,7 +124,7 @@
                         <div class="share-link mobile">
                             <div class="share-qrcode">
                                 <div class="share-button" title="使用手机访问这篇文章"><i
-                                        class="iconfont icon-qrcode"></i>
+                                        class="heofont icon-qr-code-fill"></i>
                                 </div>
                                 <div class="share-main">
                                     <div class="share-main-all">
@@ -136,10 +140,10 @@
                                target="_blank"
                                th:href="'https://service.weibo.com/share/share.php?title=' + ${post.spec.title}"
                                title="分享到微博">
-                                <i class="iconfont icon-weibo" style="font-size:22px"></i></a></div>
+                                <i class="heofont icon-weibo-fill" style="font-size:22px"></i></a></div>
                         <div class="share-link copyurl">
                             <div class="share-button" id="post-share-url" onclick="rm.copyPageUrl()" title="复制链接"><i
-                                    class="iconfont icon-link"></i></div>
+                                    class="heofont icon-link"></i></div>
                         </div>
                     </div>
                     <div class="post-tools-right">
@@ -170,7 +174,7 @@
                             <a href="javascript:window.location.href;">[[${post.spec.title}]]</a>
                         </span>
                         <button class="post-copyright-copybtn" onclick="rm.copyPageUrl()">
-                            <i class="iconfont icon-paste"></i>
+                            <i class="heofont icon-file-copy-fill"></i>
                         </button>
                     </div>
                     <div class="post-copyright__notice">
@@ -202,7 +206,7 @@
                 <div class="relatedPosts" th:if="${not #lists.isEmpty(post.categories)}">
 
                     <div class="headline">
-                        <i class="iconfont icon-robot"></i>
+                        <i class="heofont icon-star-smile-fill"></i>
                         <span>阅读建议</span>
                     </div>
                     <div class="relatedPosts-list"
@@ -226,7 +230,8 @@
                 <!-- 评论模块 -->
                 <div id="post-comment" th:if="${pluginFinder.available('PluginCommentWidget')}">
                     <div class="comment-head">
-                        <div class="comment-headline"><i class="iconfont icon-comment-alt"></i> <span>评论</span></div>
+                        <div class="comment-headline"><i class="heofont icon-chat-1-fill"></i> <span>评论</span></div>
+                        <div class="comment-randomInfo"></div>
                         <div class="comment-privacy"><a href="#">隐私政策</a></div>
                         <div class="comment-tips" id="comment-tips">
                             <span>你无需删除空行，直接评论以获取最佳展示效果</span>
