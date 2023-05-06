@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const innerHeight = window.innerHeight + 56
 
         // 當滾動條小于 56 的時候
-        if (document.body.scrollHeight <= innerHeight) {
+        if (document.body.scrollHeight <= innerHeight && $rightside) {
             $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
             return
         }
@@ -370,14 +370,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 $header.classList.add('nav-fixed')
                 $cookies_window.classList.add('cw-hide')
-                if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+                if ($rightside && window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
                     $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
                 }
             } else {
                 if (currentTop === 0) {
                     $header.classList.remove('nav-fixed', 'nav-visible')
                 }
-                $rightside.style.cssText = "opacity: ''; transform: ''"
+                $rightside && ($rightside.style.cssText = "opacity: ''; transform: ''")
             }
 
             if (document.body.scrollHeight <= innerHeight) {
