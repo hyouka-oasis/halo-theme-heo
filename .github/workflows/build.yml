@@ -16,11 +16,11 @@ jobs:
           node-version: 16
       - name: Compress zip
         run: |
-          PACKAGE_VERSION=$(sed 's/.*"version": "\(.*\)".*/\1/;t;d' ../../package.json)
-          PRE_ZIP_FOLDER=halo-theme-heo-${PACKAGE_VERSION}
+          PACKAGE_VERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' package.json)
+          PRE_ZIP_FOLDER=halo-theme-hao-${PACKAGE_VERSION}
           ARTIFACT_NAME=${PRE_ZIP_FOLDER}.zip
           ARTIFACT_PATHNAME=dist/${ARTIFACT_NAME}
-          echo "halo-theme-heo version $PACKAGE_VERSION"
+          echo "halo-theme-hao version $PACKAGE_VERSION"
           echo "Artifact name: ${ARTIFACT_NAME}"
           echo "Artifact pathname: ${ARTIFACT_PATHNAME}"
           echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> $GITHUB_ENV
@@ -34,7 +34,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: halo-theme-heo
+          name: halo-theme-hao
           path: |
             dist/*.zip
           retention-days: 7
@@ -52,11 +52,11 @@ jobs:
           node-version: 16
       - name: Compress zip
         run: |
-          PACKAGE_VERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' ../../package.json)
-          PRE_ZIP_FOLDER=halo-theme-heo-${PACKAGE_VERSION}
+          PACKAGE_VERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' package.json)
+          PRE_ZIP_FOLDER=halo-theme-hao-${PACKAGE_VERSION}
           ARTIFACT_NAME=${PRE_ZIP_FOLDER}.zip
           ARTIFACT_PATHNAME=dist/${ARTIFACT_NAME}
-          echo "halo-theme-heo version $PACKAGE_VERSION"
+          echo "halo-theme-hao version $PACKAGE_VERSION"
           echo "Artifact name: ${ARTIFACT_NAME}"
           echo "Artifact pathname: ${ARTIFACT_PATHNAME}"
           echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> $GITHUB_ENV
