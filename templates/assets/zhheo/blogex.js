@@ -166,7 +166,6 @@ function getContrastYIQ(hexcolor) {
 function navTitle() {
     var titlevalue = document.title;
     var postName = document.getElementsByClassName("post-title")[0];
-    console.log(postName, titlevalue);
     document.getElementById("page-name-text").innerHTML = postName ? postName.innerText : titlevalue;
 }
 
