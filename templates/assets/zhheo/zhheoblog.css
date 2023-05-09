@@ -5411,6 +5411,7 @@ html {
     border-radius: 8px;
     color: var(--heo-white);
     border-radius: 40px;
+    cursor: pointer;
 }
 
 .back-home-button i {
