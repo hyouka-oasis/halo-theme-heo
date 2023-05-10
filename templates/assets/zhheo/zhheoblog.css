@@ -11144,7 +11144,8 @@ b, strong {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    /*flex-direction: row-reverse;*/
+    flex-direction: row;
 }
 
 #article-container.post-content h1 {
@@ -17044,4 +17045,17 @@ a#toPageButton.haveValue:hover {
     .highlight .code pre .line span {
         font-size: 8px;
     }
+}
+
+
+#aside-content #card-toc .toc-content .toc-link:not(.active){
+    opacity: 0.6;
+    cursor: pointer;
+    filter: blur(1px);
+    transition: 0.3s;
+}
+
+#aside-content #card-toc:hover .toc-content .toc-link:not(.active) {
+    filter: blur(0px);
+    opacity: 1;
 }
