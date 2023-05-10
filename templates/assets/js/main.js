@@ -6,6 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const $searchEle = document.querySelector('#search-button')
     let searchWidth = $searchEle && $searchEle.offsetWidth
 
+    tocbot.init({
+        tocSelector: ".toc-content",
+        contentSelector: "#article-container",
+        headingSelector: "h1, h2, h3, h4",
+        activeLinkClass: "active",
+        // activeListItemClass: 'active',
+        collapseDepth: 6,
+        headingsOffset: 100,
+        scrollSmooth: true,
+        scrollSmoothOffset: -100,
+    });
+
     const adjustMenu = (change = false) => {
         if (change) {
             blogNameWidth = $blogName && $blogName.offsetWidth
