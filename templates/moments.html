@@ -52,13 +52,14 @@
                                 </th:block>
                                 <div class="bber-bottom">
                                     <div class="bber-info">
-                                        <div class="bber-info-time"><i class="fas fa-calendar-days"></i>
+                                        <div class="bber-info-time"><i class="heofont icon-calendar-todo-fill"></i>
                                             <time class="datatime" th:text="${#dates.format(moment.spec.releaseTime,'yyyy/MM/dd')}"></time>
                                         </div>
                                     </div>
                                     <a class="bber-reply"
-                                       th:attr="onclick='rm.rightMenuCommentText(&quot;\''+ ${content.html} +'&quot;\')'">
-                                        <i class="fa-solid fa-message"></i>
+                                       th:onclick="rm.rightMenuCommentText([[${content.html}]])"
+                                       >
+                                        <i class="heofont icon-chat-1-fill"></i>
                                     </a>
                                 </div>
                             </li>
