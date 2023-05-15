@@ -32,7 +32,7 @@ var heo = {
 
     // 首页bb
     initIndexEssay: function () {
-        if (document.querySelector('#comment-list')) {
+        if (document.querySelector('#bber-talk')) {
             var swiper = new Swiper('.swiper-container', {
                 direction: 'vertical', // 垂直切换选项
                 loop: true,
@@ -142,22 +142,22 @@ var heo = {
     // },
 
     // 页脚友链
-    addFriendLinksInFooter: function () {
-        var fetchUrl = "https://moments.zhheo.com/randomfriend?num=3"
-        fetch(fetchUrl)
-            .then(res => res.json())
-            .then(json => {
-                var randomFriendLinks = getArrayItems(json, 3);
-
-                var htmlText = '';
-                for (let i = 0; i < randomFriendLinks.length; ++i) {
-                    var item = randomFriendLinks[i]
-                    htmlText += `<a class='footer-item' href='${item.link}'  target="_blank" rel="noopener nofollow">${item.name}</a>`;
-                }
-                htmlText += `<a class='footer-item' href='/link/'>更多</a>`
-                document.getElementById("friend-links-in-footer").innerHTML = htmlText;
-            })
-    },
+    // addFriendLinksInFooter: function () {
+    //     var fetchUrl = "https://moments.zhheo.com/randomfriend?num=3"
+    //     fetch(fetchUrl)
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             var randomFriendLinks = getArrayItems(json, 3);
+    //
+    //             var htmlText = '';
+    //             for (let i = 0; i < randomFriendLinks.length; ++i) {
+    //                 var item = randomFriendLinks[i]
+    //                 htmlText += `<a class='footer-item' href='${item.link}'  target="_blank" rel="noopener nofollow">${item.name}</a>`;
+    //             }
+    //             htmlText += `<a class='footer-item' href='/link/'>更多</a>`
+    //             document.getElementById("friend-links-in-footer").innerHTML = htmlText;
+    //         })
+    // },
 
     //禁止图片右键单击
     stopImgRightDrag: function () {
@@ -301,7 +301,7 @@ var heo = {
     //隐藏cookie窗口
     hidecookie: function () {
         heo_cookiesTime = setTimeout(() => {
-            document.getElementById("introduction-window").classList.add('cw-hide');
+            document.getElementById("cookies-window").classList.add('cw-hide');
             setTimeout(() => {
                 $('#introduction-window').hide()
             }, 1000)
