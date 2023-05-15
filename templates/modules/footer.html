@@ -75,16 +75,17 @@
         </div>
     </div>
     <!-- 暂时不需要弹窗 -->
-    <div id="introduction-window">
-        <div class="introduction-window-title" th:text="${theme.config.snackbar.introductionTitle}"></div>
-        <div class="introduction-window-content">
-            <span class="introduction-tip" th:text="${theme.config.snackbar.introductionTip}"></span>
-            <a class="introduction-link" target="_blank" title="点击查看"
+    <div class="needEndHide" id="cookies-window" th:if="${theme.config.snackbar.introduction}">
+        <div class="cookies-window-title" th:text="${theme.config.snackbar.introductionTitle}"></div>
+        <div class="cookies-window-content">
+            <span class="cookies-tip" th:text="${theme.config.snackbar.introductionTip}"></span>
+            <a class="cookies-link" target="_blank" title="点击查看"
                th:href="@{${theme.config.snackbar.introductionUrl}}">
                 <i class="iconfont icon-arrow-circle-right"></i>
             </a>
         </div>
     </div>
+
     <div id="quit-box" onclick="RemoveRewardMask()"></div>
 </footer>
 </html>
